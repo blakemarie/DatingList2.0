@@ -1,0 +1,66 @@
+.dater-card {
+  position: relative;
+  width: 200px;  /* Set the width of the card */
+  height: 100px; /* Set the height of the card */
+  border: 1px solid #ccc;
+  background-color: #6acbef;
+  padding: 5px; /* Reduce padding to shift content up */
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+}
+
+.dater-card p {
+  margin: 0; /* Removes default margin between paragraphs */
+  line-height: 1.2; /* Adjusts the space between lines of text */
+  padding: none;
+}
+
+.dater-card h2 { 
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.dater-name {
+  color: #0a6f88;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+
+.delete-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #e947ee;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: rgba(102, 102, 102, 0.921);
+}
+
+.dater-card.not-dating {
+  background-color: #ffcccc; /* Red when not dating */
+}
+
+.toggle-dating {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.toggle-dating:hover {
+  color: #555;
+}

@@ -1,0 +1,20 @@
+/* AddDaterButton.css */
+.add-dater-button {
+    padding: 20px; /* Larger padding for a bigger button */
+    background-color: #6acbef; /* Set background color */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it circular */
+    color: white; /* Text color */
+    font-size: 32px; /* Increase font size for the plus sign */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    position: fixed; /* Make it fixed to the bottom */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow */
+  }
+  
+  .add-dater-button:hover {
+    background-color: #5aabdf; /* Darker shade on hover */
+  }
+  
