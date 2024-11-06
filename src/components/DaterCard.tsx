@@ -9,10 +9,11 @@ interface DaterCardProps {
   location: string;
   isDating: boolean;
   onToggleIsDating: () => void;
-  onDelete: () => void; 
+  onDelete: () => void;
+  onEdit: () => void; 
 }
 
-const DaterCard: React.FC<DaterCardProps> = ({ name, age, career, location, onDelete, isDating, onToggleIsDating }) => {
+const DaterCard: React.FC<DaterCardProps> = ({ name, age, career, location, onDelete, isDating, onToggleIsDating, onEdit }) => {
   return (
     <div className="dater-card">
       <button className="delete-button" onClick={onDelete}>x</button>
@@ -23,6 +24,7 @@ const DaterCard: React.FC<DaterCardProps> = ({ name, age, career, location, onDe
       <button onClick={onToggleIsDating} className="toggle-dating">
         {isDating ? "❤️" : "💔"}
       </button>
+      <button className="edit-button" onClick={onEdit}>✏️</button>
     </div>
   );
 };

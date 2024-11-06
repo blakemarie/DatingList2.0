@@ -4,7 +4,7 @@
   height: 100px; /* Set the height of the card */
   border: 1px solid #ccc;
   background-color: #6acbef;
-  padding: 5px; /* Reduce padding to shift content up */
+  padding: 20px; /* Reduce padding to shift content up */
   border-radius: 8px;
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a shadow */
@@ -64,3 +64,27 @@
 .toggle-dating:hover {
   color: #555;
 }
+
+.edit-button {
+  position: bottom;
+  bottom: 0.5em;
+  right: 0.5em;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #666; /* Adjust color as needed */
+}
+
+.edit-button:hover {
+  color: #333; /* Change color on hover for visual feedback */
+}
+
+
+
+
+
+
+
+
+

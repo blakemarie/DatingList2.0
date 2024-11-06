@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DaterCard from './DaterCard';
+import DaterForm from './DaterForm';
 import AddDaterButton from './AddDaterButton'; // Import AddDaterButton for adding new daters
 import './DaterList.css';
 
@@ -22,6 +23,10 @@ const DaterList: React.FC = () => {
     { id: 5, name: "Joshua", age: 30, career: "CEO", location: "Los Angeles, CA", isDating: true },
   ]);
 
+  const [showForm, setShowForm] = useState(false);  // Track form visibility
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentDater, setCurrentDater] = useState<Dater | null>(null);
+
   const handleDeleteDater = (id: number) => {
     setDaters(daters.filter(dater => dater.id !== id));
   };
@@ -32,22 +37,39 @@ const DaterList: React.FC = () => {
     ));
   };
 
-  // Function to add a new dater
-  const addDater = () => {
-    const newDater = {
-      id: daters.length + 1, // Ensure a unique id
-      name: "New Dater",
-      age: 25,
-      career: "Unknown",
-      location: "Unknown",
-      isDating: true,
-    };
-    setDaters([...daters, newDater]); // Update state with new dater added
+  const handleFormSubmit = (dater: Dater) => {
+    if (isEditing && currentDater) {
+      setDaters(daters.map(d => d.id === dater.id ? dater : d));
+      setIsEditing(false);
+    } else {
+      setDaters([...daters, { ...dater, id: Date.now() }]);
+    }
+    setShowForm(false); // Hide form after submission
+    setCurrentDater(null);
+  };
+
+  const handleAddDater = () => {
+    setShowForm(true);     // Show form for new entry
+    setIsEditing(false);   // Ensure it’s not in editing mode
+    setCurrentDater(null); // Clear any current editing data
+  };
+
+  const handleEditDater = (dater: Dater) => {
+    setCurrentDater(dater);
+    setIsEditing(true);
+    setShowForm(true);
   };
 
   return (
     <div className='dater-list'>
       <h2>💖 Dater List 💖</h2>
+      {showForm && (
+        <DaterForm 
+          onSubmit={handleFormSubmit} 
+          currentDater={isEditing ? currentDater : null} 
+          isEditing={isEditing}
+        />
+      )}
       {daters.map((dater) => (
         <DaterCard 
           key={dater.id} 
@@ -55,12 +77,13 @@ const DaterList: React.FC = () => {
           age={dater.age} 
           career={dater.career} 
           location={dater.location} 
-          onDelete={() => handleDeleteDater(dater.id)} // Pass the delete function
           isDating={dater.isDating}
           onToggleIsDating={() => handleToggleDating(dater.id)} 
+          onDelete={() => handleDeleteDater(dater.id)}
+          onEdit={() => handleEditDater(dater)}
         />
       ))}
-      <AddDaterButton onAddDater={addDater} /> {/* Add button to add a new dater */}
+      <AddDaterButton onAddDater={handleAddDater} />
     </div>
   );
 };

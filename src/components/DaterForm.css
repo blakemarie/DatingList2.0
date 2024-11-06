@@ -1,0 +1,56 @@
+/* DaterForm.css */
+
+.dater-form-container {
+    background-color: #e947ee; /* Soft background color */
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 4px 8px #e1b3e0; /* Subtle shadow */
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dater-form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .dater-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dater-form input[type="text"],
+  .dater-form input[type="number"] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .dater-form input[type="text"]:focus,
+  .dater-form input[type="number"]:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(118, 213, 225, 0.6);
+  }
+  
+  .dater-form button {
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #00aaff; /* Primary color */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .dater-form button:hover {
+    background-color: rgb(0, 170, 255); /* Darker shade on hover */
+  }
+  
