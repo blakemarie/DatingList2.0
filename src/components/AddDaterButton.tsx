@@ -7,10 +7,10 @@ interface AddDaterButtonProps {
 }
 
 const AddDaterButton: React.FC<AddDaterButtonProps> = ({ onAddDater }) => {
-    console.log("AddDaterButton is rendering")
+    
   return (
     <button className="add-dater-button" onClick={onAddDater}>
-      + {/* Display a large plus sign */}
+      + {}
     </button>
   );
 };

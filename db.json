@@ -1,0 +1,52 @@
+{
+    "daters": [
+      {
+        "id": 1,
+        "name": "Andre",
+        "age": 30,
+        "career": "Engineer",
+        "location": "New York",
+        "isDating": true
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "age": 39,
+        "career": "Designer",
+        "location": "San Francisco",
+        "isDating": true
+      },
+      {
+        "id": 3,
+        "name": "Sam",
+        "age": 40,
+        "career": "Engineer",
+        "location": "Los Angeles",
+        "isDating": true
+      },
+      {
+        "id": 4,
+        "name": "Brandon",
+        "age": 45,
+        "career": "Engineer",
+        "location": "Washington DC",
+        "isDating": false
+      },
+      {
+        "id": 5,
+        "name": "Scott",
+        "age": 41,
+        "career": "Engineer",
+        "location": "Los Angeles",
+        "isDating": false
+      },
+      {
+        "id": 6,
+        "name": "Ruben",
+        "age": 37,
+        "career": "Engineer",
+        "location": "St. Louis",
+        "isDating": true
+      }
+    ]
+  }

@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Dater } from './types';
 import DaterCard from './DaterCard';
 import DaterForm from './DaterForm';
-import AddDaterButton from './AddDaterButton'; // Import AddDaterButton for adding new daters
+import AddDaterButton from './AddDaterButton';
 import './DaterList.css';
 
-interface Dater {
-  id: number;
-  name: string;
-  age: number;
-  career: string;
-  location: string;
-  isDating: boolean;
-}
-
 const DaterList: React.FC = () => {
-  // Initialize test data in state
-  const [daters, setDaters] = useState<Dater[]>([
-    { id: 1, name: "Chris", age: 28, career: "Doctor", location: "Los Angeles, CA", isDating: true},
-    { id: 2, name: "Zack", age: 37, career: "Sales", location: "Los Angeles, CA", isDating: true },
-    { id: 3, name: "Ryan", age: 40, career: "Lawyer", location: "Washington DC", isDating: true },
-    { id: 4, name: "Gary", age: 33, career: "EMT", location: "Las Vegas, NV", isDating: true },
-    { id: 5, name: "Joshua", age: 30, career: "CEO", location: "Los Angeles, CA", isDating: true },
-  ]);
-
-  const [showForm, setShowForm] = useState(false);  // Track form visibility
+  const [daters, setDaters] = useState<Dater[]>([]);
+  const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [currentDater, setCurrentDater] = useState<Dater | null>(null);
+
+  useEffect(() => {
+    // Fetch data from JSON Server
+    fetch('http://localhost:3000/daters')
+      .then((response) => response.json())
+      .then((data) => setDaters(data))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
 
   const handleDeleteDater = (id: number) => {
     setDaters(daters.filter(dater => dater.id !== id));
@@ -44,14 +36,14 @@ const DaterList: React.FC = () => {
     } else {
       setDaters([...daters, { ...dater, id: Date.now() }]);
     }
-    setShowForm(false); // Hide form after submission
+    setShowForm(false);
     setCurrentDater(null);
   };
 
   const handleAddDater = () => {
-    setShowForm(true);     // Show form for new entry
-    setIsEditing(false);   // Ensure it’s not in editing mode
-    setCurrentDater(null); // Clear any current editing data
+    setShowForm(true);
+    setIsEditing(false);
+    setCurrentDater(null);
   };
 
   const handleEditDater = (dater: Dater) => {
@@ -61,7 +53,7 @@ const DaterList: React.FC = () => {
   };
 
   return (
-    <div className='dater-list'>
+    <div className="dater-list">
       <h2>💖 Dater List 💖</h2>
       {showForm && (
         <DaterForm 

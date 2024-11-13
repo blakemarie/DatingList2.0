@@ -1,0 +1,26 @@
+/* NotesBox.css */
+.notes-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .notes-textarea {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical; /* Allow users to resize the box vertically */
+    outline: none;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    color: #e058b3; 
+    font-weight: bold;
+  }
+  
+  .notes-textarea:focus {
+    border-color: #6acbef;
+    background-color: #f9f9f9;
+  }
+  

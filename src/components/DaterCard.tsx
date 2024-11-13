@@ -1,6 +1,6 @@
 // DaterCard.tsx
 import React from 'react';
-import './DaterCard.css'; // 
+import './DaterCard.css'; 
 
 interface DaterCardProps {
   name: string;
@@ -15,7 +15,7 @@ interface DaterCardProps {
 
 const DaterCard: React.FC<DaterCardProps> = ({ name, age, career, location, onDelete, isDating, onToggleIsDating, onEdit }) => {
   return (
-    <div className="dater-card">
+    <div className="dater-card" style={{ backgroundColor: isDating ? '#6acbef' : '#FFCDD2' }}>
       <button className="delete-button" onClick={onDelete}>x</button>
       <h2 className='dater-name'>{name}</h2>
       <p>Age: {age}</p>
